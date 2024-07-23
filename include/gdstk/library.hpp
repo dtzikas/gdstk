@@ -16,6 +16,7 @@ LICENSE file or <http://www.boost.org/LICENSE_1_0.txt>
 
 #include "array.hpp"
 #include "cell.hpp"
+#include <iosfwd>
 
 namespace gdstk {
 
@@ -166,6 +167,9 @@ struct LibraryInfo {
 Library read_gds(const char* filename, double unit, double tolerance, const Set<Tag>* shape_tags,
                  ErrorCode* error_code);
 
+Library read_gds(std::istream& in, double unit, double tolerance, const Set<Tag>* shape_tags,
+                 ErrorCode* error_code);
+
 // Read the contents of an OASIS file into a new library.  If unit is not zero,
 // the units in the file are converted (all elements are properly scaled to the
 // desired unit).  The value of tolerance is used as the default tolerance for
@@ -173,6 +177,10 @@ Library read_gds(const char* filename, double unit, double tolerance, const Set<
 // empty, only shapes in those tags will be imported.  If not NULL, any errors
 // will be reported through error_code.
 Library read_oas(const char* filename, double unit,
+                 double tolerance,  // TODO: const Set<Tag>* shape_tags,
+                 ErrorCode* error_code);
+
+Library read_oas(std::istream& is, double unit,
                  double tolerance,  // TODO: const Set<Tag>* shape_tags,
                  ErrorCode* error_code);
 

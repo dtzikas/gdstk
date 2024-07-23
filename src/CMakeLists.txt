@@ -49,7 +49,8 @@ set(HEADER_LIST
     "${gdstk_SOURCE_DIR}/include/gdstk/style.hpp"
     "${gdstk_SOURCE_DIR}/include/gdstk/tagmap.hpp"
     "${gdstk_SOURCE_DIR}/include/gdstk/utils.hpp"
-    "${gdstk_SOURCE_DIR}/include/gdstk/vec.hpp")
+    "${gdstk_SOURCE_DIR}/include/gdstk/vec.hpp"
+    "${gdstk_SOURCE_DIR}/include/gdstk/zfstream.h")
 
 set(SOURCE_LIST
     cell.cpp
@@ -67,7 +68,9 @@ set(SOURCE_LIST
     repetition.cpp
     robustpath.cpp
     style.cpp
-    utils.cpp)
+    utils.cpp
+    zfstream.cc
+    ${HEADER_LIST})
 
 add_library(gdstk ${SOURCE_LIST} ${HEADER_LIST})
 
